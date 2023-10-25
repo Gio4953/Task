@@ -1,0 +1,11 @@
+<h2>Edit Notification</h2>
+<form method="post">
+    <input type="hidden" name="client_id" value="{{ client_id }}">
+    {% csrf_token %}
+    SMS: <input type="text" name="sms" value="{{ notification.sms }}"><br>
+    Telegram: <input type="text" name="telegram" value="{{ notification.telegram }}"><br>
+    WhatsApp: <input type="text" name="whatsapp" value="{{ notification.whatsapp }}"><br>
+    Email: <input type="text" name="email" value="{{ notification.email }}"><br>
+    <button type="submit">Save Changes</button>
+</form>
+<a href="{% url 'notification_list' %}">Back to Notification List</a>

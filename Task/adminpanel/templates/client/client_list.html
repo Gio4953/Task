@@ -1,0 +1,15 @@
+<h2>Clients</h2>
+<ul>
+    {% for client in clients %}
+        <li>
+            Client Name: {{ client.username }}<br>
+            Text-to-Speech Enabled: {% if client.tts_enabled %}Yes{% else %}No{% endif %}<br>
+            <a href="{% url 'edit_client' client.id %}">Edit</a> |
+            <a href="{% url 'delete_client' client.id %}">Delete</a> |
+            <a href="{% url 'filter_word_list' client.id %}">Filter Words</a> |
+            <a href="{% url 'notification_list' client.id %}">Notifications</a> |
+            <a href="{% url 'article_list' client.id %}">Articles</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_client' %}">Add Client</a>

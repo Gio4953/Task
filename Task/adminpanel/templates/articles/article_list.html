@@ -1,0 +1,14 @@
+<h2>Articles</h2>
+<ul>
+    {% for article in articles %}
+        <li>
+            Article Name: {{ article.article_name }}<br>
+            Site: {{ article.site.sitename }}<br>
+            Client: {{ article.client.username }}<br>
+            Insert Date: {{ article.insert_date }}<br>
+            Article Date: {{ article.article_date }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_article' client_id=client_id%}">Add Article</a>
+<a href="{% url 'client_list' %}">Back to Client List</a>

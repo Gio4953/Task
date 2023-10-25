@@ -1,0 +1,15 @@
+<ul>
+    {% for filter_word in filter_words %}
+        <li>
+            Word: {{ filter_word.word }}<br>
+            Word Alias: {{ filter_word.wordAlias }}<br>
+            Subword Alias: {{ filter_word.subwordalias }}<br>
+            Stopword: {{ filter_word.stopword }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_filter_word' client_id=client_id %}">Add Filter Word</a>
+<a href="{% url 'client_list' %}">Back to client list</a>
+
+
+

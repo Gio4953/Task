@@ -1,0 +1,11 @@
+<h2>Edit Filter Word</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="client_id" value="{{ client_id }}">
+    Word: <input type="text" name="word" value="{{ filter_word.word }}"><br>
+    Word Alias: <input type="text" name="wordAlias" value="{{ filter_word.wordAlias }}"><br>
+    Subword Alias: <input type="text" name="subwordalias" value="{{ filter_word.subwordalias }}"><br>
+    Stopword: <input type="text" name="stopword" value="{{ filter_word.stopword }}"><br>
+    <button type="submit">Save Changes</button>
+</form>
+<a href="{% url 'filter_word_list' %}">Back to Filter Word List</a>

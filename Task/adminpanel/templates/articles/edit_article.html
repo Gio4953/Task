@@ -1,0 +1,22 @@
+<h2>Edit Article</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="client_id" value="{{ client_id }}">
+    Article Name: <input type="text" name="article_name" value="{{ article.article_name }}"><br>
+    Site:
+    <select name="site">
+        {% for site in sites %}
+            <option value="{{ site.id }}" {% if site.id == article.site.id %}selected{% endif %}>{{ site.sitename }}</option>
+        {% endfor %}
+    </select><br>
+    Client:
+    <select name="client">
+        {% for client in clients %}
+            <option value="{{ client.id }}" {% if client.id == article.client.id %}selected{% endif %}>{{ client.username }}</option>
+        {% endfor %}
+    </select><br>
+    Insert Date: <input type="text" name="insert_date" value="{{ article.insert_date }}"><br>
+    Article Date: <input type="text" name="article_date" value="{{ article.article_date }}"><br>
+    <button type="submit">Save Changes</button>
+</form>
+<a href="{% url 'article_list' %}">Back to Article List</a>

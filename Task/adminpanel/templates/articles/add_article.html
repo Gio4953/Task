@@ -1,0 +1,21 @@
+<h2>Add Article</h2>
+<form method="post">
+    {% csrf_token %}
+    Article Name: <input type="text" name="article_name"><br>
+    Site:
+    <select name="site">
+        {% for site in sites %}
+            <option value="{{ site.id }}">{{ site.sitename }}</option>
+        {% endfor %}
+    </select><br>
+    Client:
+    <select name="client">
+        {% for client in clients %}
+            <option value="{{ client.id }}">{{ client.username }}</option>
+        {% endfor %}
+    </select><br>
+    Insert Date: <input type="text" name="insert_date"><br>
+    Article Date: <input type="text" name="article_date"><br>
+    <button type="submit">Add Article</button>
+</form>
+<a href="{% url 'article_list' client_id=client_id %}">Back to Article List</a>

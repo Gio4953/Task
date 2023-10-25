@@ -1,0 +1,10 @@
+<h2>Add Notification</h2>
+<form method="post">
+    {% csrf_token %}
+    SMS: <input type="text" name="sms"><br>
+    Telegram: <input type="text" name="telegram"><br>
+    WhatsApp: <input type="text" name="whatsapp"><br>
+    Email: <input type="text" name="email"><br>
+    <button type="submit">Add Notification</button>
+</form>
+<a href="{% url 'notification_list' client_id=client_id %}">Back to Notification List</a>
